@@ -56,6 +56,10 @@ class TrainController extends Controller
     public function show(string $id)
     {
         //
+        $train = Train::find($id);
+        return view('trains.show', [
+            'train'=>$train
+        ]);
     }
 
     /**

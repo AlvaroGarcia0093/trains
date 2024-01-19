@@ -44,6 +44,11 @@
                 <td> {{ $train -> nombre }} </td>
                 <td> {{ $train -> pasajeros }} </td>
                 <td> {{ $train -> anyo }} </td>
+                <td>
+                    <form action="{{ route('trains.show',['train'=>$train->id]) }}" method="get">
+                        <input class="btn btn-dark" type="submit" value="Ver tipo de tren">
+                    </form>
+                </td>
             </tr>
         @endforeach
     </table>

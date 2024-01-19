@@ -52,6 +52,10 @@ class TicketTypeController extends Controller
     public function show(string $id)
     {
         //
+        $tickettype = Ticket_Type::find($id);
+        return view('ticketstype.show', [
+            'tickettype'=>$tickettype
+        ]);
     }
 
     /**
