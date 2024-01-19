@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Train;
 use App\Models\Ticket;
 use App\Models\Ticket_Type;
 use Illuminate\Http\Request;
@@ -29,11 +30,11 @@ class TicketController extends Controller
     {
         //
         $ticketstype = Ticket_Type::all();
-        $tickets = ticket::all();
+        $trains = Train::all();
 
         return view('tickets.create', [
             'ticketstype' => $ticketstype,
-            'tickets' => $tickets
+            'trains' => $trains
         ]);
     }
 
@@ -45,7 +46,7 @@ class TicketController extends Controller
         $ticket = new Ticket();
         $ticket->date = $request->input("date");
         $ticket->price = $request->input("price");
-        $ticket->ticket_id = $request->input("ticket");
+        $ticket->train_id = $request->input("train");
         $ticket->ticket_types_id = $request->input("tickettype");
         $ticket->save();
 
@@ -97,5 +98,9 @@ class TicketController extends Controller
     public function destroy(string $id)
     {
         //
+        $ticket = Ticket::find($id);
+        $ticket->delete();
+
+        return redirect('/tickets');
     }
 }

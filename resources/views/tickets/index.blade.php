@@ -50,6 +50,13 @@
                         <input class="btn btn-dark" type="submit" value="Ver tickets">
                     </form>
                 </td>
+                <td>
+                    <form action="{{ route('tickets.destroy',['ticket'=>$ticket->id]) }}" method="post">
+                        @csrf
+                        {{ method_field('DELETE') }}
+                        <input class="btn btn-danger" type="submit" value="Eliminar">
+                    </form>
+                </td>
             </tr>
         @endforeach
     </table>

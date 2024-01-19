@@ -87,5 +87,9 @@ class TrainTypeController extends Controller
     public function destroy(string $id)
     {
         //
+        $traintype = Train_Type::find($id);
+        $traintype->delete();
+
+        return redirect('/trainstype');
     }
 }
