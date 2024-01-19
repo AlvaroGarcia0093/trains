@@ -46,7 +46,7 @@
                 <td> {{ $train -> anyo }} </td>
                 <td>
                     <form action="{{ route('trains.show',['train'=>$train->id]) }}" method="get">
-                        <input class="btn btn-dark" type="submit" value="Ver tipo de tren">
+                        <input class="btn btn-dark" type="submit" value="Ver trenes">
                     </form>
                 </td>
             </tr>

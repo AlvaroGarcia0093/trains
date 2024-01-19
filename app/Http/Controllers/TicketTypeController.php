@@ -64,6 +64,10 @@ class TicketTypeController extends Controller
     public function edit(string $id)
     {
         //
+        $tickettype = Ticket_Type::find($id);
+        return view('ticketstype.edit', [
+            'tickettype'=>$tickettype
+        ]);
     }
 
     /**
@@ -72,6 +76,11 @@ class TicketTypeController extends Controller
     public function update(Request $request, string $id)
     {
         //
+        $tickettype = Ticket_Type::find($id);
+        $tickettype->type = $request->input("type");
+        $tickettype->save();
+
+        return redirect('/ticketstype');
     }
 
     /**

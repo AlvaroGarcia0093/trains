@@ -74,6 +74,11 @@ class TrainTypeController extends Controller
     public function update(Request $request, string $id)
     {
         //
+        $traintype = Train_Type::find($id);
+        $traintype->type = $request->input("type");
+        $traintype->save();
+
+        return redirect('/trainstype');
     }
 
     /**

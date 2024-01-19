@@ -47,7 +47,7 @@
                 <td> {{ $ticket->price }} </td>
                 <td>
                     <form action="{{ route('tickets.show',['ticket'=>$ticket->id]) }}" method="get">
-                        <input class="btn btn-dark" type="submit" value="Ver tipo de tren">
+                        <input class="btn btn-dark" type="submit" value="Ver tickets">
                     </form>
                 </td>
             </tr>

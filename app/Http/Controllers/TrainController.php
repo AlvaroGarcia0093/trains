@@ -68,6 +68,10 @@ class TrainController extends Controller
     public function edit(string $id)
     {
         //
+        $train = Train::find($id);
+        return view('trains.edit', [
+            'train'=>$train
+        ]);
     }
 
     /**
@@ -76,6 +80,14 @@ class TrainController extends Controller
     public function update(Request $request, string $id)
     {
         //
+        $train = Train::find($id);
+        $train->nombre = $request->input("nombre");
+        $train->pasajeros = $request->input("pasajeros");
+        $train->anyo = $request->input("anyo");
+        $train->save();
+
+
+        return redirect('/trains');
     }
 
     /**
